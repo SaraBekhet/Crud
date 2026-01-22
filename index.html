@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/crud.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="imges/70a5a28358a0f80718ac4f6737f018ae-removebg-preview.png" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">
+      </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <button class="navbar-nav ms-auto mb-2 mb-lg-0 mx-3 btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="fa-solid fa-plus m-1">
+            </i>
+            Add Product
+        </button>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 d-inline-block" id="searchInput" type="search" placeholder="Search" oninput="searchProduct()" aria-label="Search"/>
+        </form>
+        <button class="btn btn-outline-danger ms-2" onclick="clearAllProducts()">
+          Clear All
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-white border-secondary">
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title text-info" id="exampleModalLabel">
+            Add New Product
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">
+              Product Image
+            </label>
+            <input type="file" id="productImage" class="form-control bg-secondary text-white border-0" onchange="handleImageChange(event)">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">
+              Product Name
+            </label>
+            <input type="text" id="productName" class="form-control bg-secondary text-white border-0" oninput="nameValidation()">
+            <div id="nameAlert" class="alert alert-danger d-none mt-2">
+              Invalid Name
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">
+              Product Price
+            </label>
+            <input type="number" id="productPrice" class="form-control bg-secondary text-white border-0" oninput="priceValidation()">
+            <div id="priceAlert" class="alert alert-danger d-none mt-2">
+              Invalid Price
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">
+              Product Description
+            </label>
+            <textarea id="productDesc" class="form-control bg-secondary text-white border-0" oninput="descValidation()">
+            </textarea>
+            <div id="descAlert" class="alert alert-danger d-none mt-2">
+              Invalid Description
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-secondary">
+          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button onclick="createProduct()" id="addButton" class="btn btn-info px-4 text-white">
+            Add Product
+          </button>
+          <button onclick="updateproduct()" id="updateButton" class="btn btn-warning d-none px-4">
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid px-lg-5">
+    <div class="row g-4" id="rowBody">
+    </div>
+  </div>
+  <section class="products-section py-5">
+    <div class="container-fluid px-lg-5 mb-4 mt-5">
+      <div class="d-flex justify-content-between align-items-center border-bottom border-secondary pb-3">
+        <h2 class="text-white h4 mb-0 text-uppercase" style="letter-spacing: 2px;">
+          Product Gallery
+        </h2>
+        <div class="text-info border border-info rounded-pill px-3 py-1 bg-dark shadow-sm">
+          <i class="fa-solid fa-layer-group me-2">
+          </i>
+          <span id="productCount" class="fw-bold">
+            Total Products: 0
+          </span>
+        </div>
+      </div>
+      <div class="row g-4 mt-3" id="rowBody">
+      </div>
+    </div>
+  </section>
+  <script src="js/all.min.js">
+  </script>
+  <script src="js/bootstrap.bundle.min.js">
+  </script>
+  <script src="js/crud.js">
+  </script>
+</body>
+</html>
