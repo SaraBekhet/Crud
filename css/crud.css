@@ -1,3 +1,22 @@
+:root {
+    --bg-color: #ffffff;
+    --card-bg: #f8f9fa;
+    --text-color: #212529;
+}
+body.dark-mode {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #ffffff;
+}
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: 0.3s;
+}
+.product-card {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color) !important;
+}
 .navbar img{
     height: 50px;
 }
